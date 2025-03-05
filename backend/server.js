@@ -251,3 +251,6 @@ process.on("SIGTERM", () => {
 process.on("uncaughtException", (err) => {
     console.error("⚠️ Uncaught Exception:", err);
 });
+setInterval(() => {
+    console.log("✅ Keeping the app alive...");
+}, 10000); // Log every 10 seconds to prevent idle shutdown
