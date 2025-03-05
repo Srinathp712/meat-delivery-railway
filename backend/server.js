@@ -157,7 +157,7 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Dynamically find the frontend path (for Railway)
-const frontendPath = path.join(__dirname, "../frontend"); // Change based on Railway's folder structure
+const frontendPath = path.join(__dirname, "frontend"); // Adjust the folder path based on the actual location
 console.log("🛠️ Serving frontend from:", frontendPath);
 
 // ✅ Check if frontend directory exists before serving
