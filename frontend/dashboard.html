@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script defer src="cart.js"></script>
+    <style>
+        /* General Page Styling */
+        body {
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, black 70%, red 30%);
+            color:white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Heading Styling */
+        h1{
+            color: #e9271d;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .drop-word {
+            opacity: 0;
+            transform: translateY(-100px) rotate(0deg);
+            display: inline-block;
+            animation: drop-words 1s ease-in-out forwards;
+        }
+
+        @keyframes drop-words {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(15px) rotate(3deg);
+            }
+            75% {
+                transform: translateY(-8px) rotate(-3deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        /* Product Container */
+        .products {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Individual Product Box */
+        .product {
+            background: rgba(54, 54, 54, 0.36);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0px 4px 8px rgba(53, 79, 96, 0.3);
+        }
+
+        /* Product Image */
+        /*.product img {
+            width: 300px;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .product img:hover {
+            transform: scale(0.9);
+            box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.3);
+        }*/
+        /* Slide-in Animation for Product Images */
+        .product img {
+            width: 300px;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 10px;
+            transform: translateX(-100%);
+            opacity: 0;
+            animation: slide-in 1s ease-in-out forwards;
+        }
+
+        /* Delay each product image animation */
+        .product:nth-child(1) img {
+            animation-delay: 0.1s;
+        }
+
+        .product:nth-child(2) img {
+            animation-delay: 0.3s;
+        }
+
+        .product:nth-child(3) img {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        /* Buttons */
+        button {
+            background-color: white;
+            color: black;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        /* Navigation Links */
+        .links {
+            margin-top: 20px;
+        }
+
+        .btn {
+            text-decoration: none;
+            background: white;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 30px;
+        }
+
+        .btn:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span class="drop-word" style="animation-delay: 0.8s;">Welcome</span>
+        <span class="drop-word" style="animation-delay: 1.2s;">to</span>
+        <span class="drop-word" style="animation-delay: 1.4s;">the</span>
+        <span class="drop-word" style="animation-delay: 1.6s;">Meat</span>
+        <span class="drop-word" style="animation-delay: 1.8s;">Store</span>
+    </h1>
+
+    <div class="products">
+        <div class="product">
+            <img src="/images/chicken.png" alt="Fresh Chicken - ₹200/kg">
+            <p><strong>Chicken - ₹200/kg</strong></p>
+            <button onclick="addToCart('Chicken', 200)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="/images/mutton.png" alt="Premium Mutton - ₹700/kg">
+            <p><strong>Mutton - ₹700/kg</strong></p>
+            <button onclick="addToCart('Mutton', 700)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="/images/fish.png" alt="Fresh Fish - ₹250/kg">
+            <p><strong>Fish - ₹250/kg</strong></p>
+            <button onclick="addToCart('Fish', 250)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="links">
+        <a href="cart.html" class="btn">View Cart</a>
+        <a href="login.html" class="btn">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <script defer src="cart.js"></script>
+    <style>
+        /* Cart Page Styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 220px;
+        }
+
+        h1 {
+            color: #e9271d;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 0px;
+        }
+
+        /* Cart Items */
+        #cartContainer {
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap; /* Wraps items if there's no space */
+            gap:70px; /* Space between items */
+            justify-content: center;
+        }
+
+        .cart-item {
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .cart-item:nth-child(odd) {
+            background: white;
+            color: black;
+        }
+
+        .cart-item:nth-child(even) {
+            background: red;
+            color: white;
+        }
+
+        #totalPrice {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Red Background Section */
+        .red-bg {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30vh; /* 30% of viewport height */
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+        /* User Details Section */
+        .user-details {
+            position: absolute;
+            bottom: 15px; /* Stays at the bottom of the red section */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            padding-right: 10px;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-container {
+            display: flex;
+            gap: 8px;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        input, textarea {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            background: white;
+            color: black;
+            flex: 1;
+            min-width: 30%;
+        }
+
+        textarea {
+            resize: none;
+            min-width: 30%;
+        }
+
+        /* Buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .place-order-btn {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .place-order-btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cart</h1>
+
+    <div id="cartContainer">
+        <p id="emptyCartMessage">Your cart is empty.</p>
+    </div>
+
+    <p id="totalPrice"><strong>Total Price: ₹0</strong></p>
+
+    <hr>
+
+    <!-- Red Background Section -->
+    <div class="red-bg">
+        <!-- User Details Form Inside Red BG -->
+        <div class="user-details">
+            <h3>Enter Your Details</h3>
+            <form id="orderForm">
+                <div class="input-container">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="text" id="phone" placeholder="Phone" pattern="[0-9]{10}" title="Enter a valid 10-digit phone number" required>
+                    <textarea id="address" placeholder="Address" required></textarea>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="place-order-btn">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
